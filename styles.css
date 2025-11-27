@@ -1,0 +1,375 @@
+:root {
+	--bg: #050505;
+	--text: #f5f5f5;
+	--muted: #a0a0a0;
+	--accent: #1cb5b2; /* teal accent; switch to #ff4b4b for red */
+	--accent-soft: rgba(28, 181, 178, 0.15);
+	--card-bg: #101010;
+	--border: #333;
+	--max-width: 1100px;
+	--radius-lg: 0.75rem;
+	--radius-md: 0.5rem;
+	--shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	background: radial-gradient(circle at top, #111 0, var(--bg) 45%, #000 100%);
+	color: var(--text);
+}
+
+/* Layout helpers */
+
+main {
+	padding: 0 1.25rem 3rem;
+}
+
+/* Header */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.9rem 1.25rem;
+	background: rgba(5, 5, 5, 0.96);
+	border-bottom: 1px solid var(--border);
+	backdrop-filter: blur(10px);
+}
+
+.logo {
+	display: flex;
+	flex-direction: column;
+	line-height: 1;
+}
+
+.logo-main {
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+}
+
+.logo-sub {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+	color: var(--muted);
+}
+
+.header-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+.header-phone {
+	color: var(--text);
+	font-size: 0.9rem;
+	text-decoration: none;
+}
+
+.header-phone:hover {
+	color: var(--accent);
+}
+
+/* Buttons */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.55rem 1rem;
+	border-radius: 999px;
+	font-size: 0.9rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	text-decoration: none;
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+	white-space: nowrap;
+}
+
+.btn-primary {
+	background: var(--accent);
+	color: #041313;
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+}
+
+.btn-outline {
+	border-color: var(--accent);
+	color: var(--accent);
+	background: transparent;
+}
+
+.btn-outline:hover {
+	background: var(--accent-soft);
+}
+
+.btn-ghost {
+	border-color: var(--border);
+	color: var(--text);
+	background: rgba(15, 15, 15, 0.8);
+}
+
+.btn-ghost:hover {
+	border-color: var(--accent);
+}
+
+/* Hero */
+
+.hero {
+	max-width: var(--max-width);
+	margin: 1.5rem auto 0;
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(0, 4fr);
+	gap: 1.5rem;
+	align-items: center;
+}
+
+.hero-image-wrapper {
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	background: #000;
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-soft);
+}
+
+.hero-image {
+	width: 100%;
+	height: 100%;
+	display: block;
+	object-fit: cover;
+}
+
+.hero-text h1 {
+	font-size: clamp(1.9rem, 3vw, 2.4rem);
+	margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+	color: var(--muted);
+	font-size: 0.98rem;
+	line-height: 1.6;
+	margin-bottom: 1.2rem;
+}
+
+.hero-cta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+/* Contact strip */
+
+.contact-strip {
+	max-width: var(--max-width);
+	margin: 2.5rem auto 0;
+	padding: 1.75rem 1.5rem;
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border);
+	background: linear-gradient(135deg, rgba(28, 181, 178, 0.12), rgba(5, 5, 5, 0.95));
+	box-shadow: var(--shadow-soft);
+}
+
+.contact-strip h2 {
+	margin-top: 0;
+	margin-bottom: 0.25rem;
+	font-size: 1.35rem;
+}
+
+.contact-tagline {
+	margin-top: 0;
+	margin-bottom: 1.25rem;
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
+.contact-options {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1.25rem;
+}
+
+.contact-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.contact-label {
+	font-size: 0.75rem;
+	text-transform: uppercase;
+	letter-spacing: 0.16em;
+	color: var(--muted);
+}
+
+.contact-link {
+	color: var(--text);
+	text-decoration: none;
+	font-size: 0.95rem;
+	border-bottom: 1px solid transparent;
+	padding-bottom: 0.1rem;
+	max-width: fit-content;
+}
+
+.contact-link:hover {
+	border-color: var(--accent);
+	color: var(--accent);
+}
+
+/* Pricing */
+
+.pricing {
+	max-width: var(--max-width);
+	margin: 2.75rem auto 0;
+}
+
+.pricing h2 {
+	font-size: 1.4rem;
+	margin-bottom: 0.5rem;
+}
+
+.pricing-note {
+	color: var(--muted);
+	font-size: 0.9rem;
+	margin-bottom: 1.5rem;
+}
+
+.pricing-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	gap: 1.5rem;
+}
+
+.pricing-card {
+	background: var(--card-bg);
+	border-radius: var(--radius-md);
+	padding: 1.25rem 1.2rem 1.3rem;
+	border: 1px solid var(--border);
+	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.pricing-card h3 {
+	margin-top: 0;
+	margin-bottom: 0.3rem;
+	font-size: 1.05rem;
+}
+
+.price {
+	margin: 0 0 0.75rem;
+	font-weight: 600;
+	color: var(--accent);
+	font-size: 0.98rem;
+}
+
+.pricing-card ul {
+	padding-left: 1.2rem;
+	margin: 0;
+	list-style: disc;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.pricing-card li + li {
+	margin-top: 0.2rem;
+}
+
+.pricing-footer {
+	margin-top: 1.5rem;
+	font-size: 0.9rem;
+	color: var(--muted);
+}
+
+/* Footer */
+
+.site-footer {
+	border-top: 1px solid var(--border);
+	padding: 1.3rem 1.25rem 1.5rem;
+	margin-top: 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	font-size: 0.85rem;
+	color: var(--muted);
+	background: #050505;
+}
+
+.footer-right {
+	display: flex;
+	gap: 0.9rem;
+	flex-wrap: wrap;
+}
+
+.footer-right a {
+	color: var(--muted);
+	text-decoration: none;
+}
+
+.footer-right a:hover {
+	color: var(--accent);
+}
+
+.footer-note {
+	margin: 0.1rem 0 0;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+	.hero {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.hero-image-wrapper {
+		order: -1;
+	}
+
+	.site-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.header-actions {
+		width: 100%;
+		justify-content: flex-start;
+	}
+
+	main {
+		padding-left: 0.9rem;
+		padding-right: 0.9rem;
+	}
+}
+
+@media (max-width: 520px) {
+	.hero-cta {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.site-footer {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
